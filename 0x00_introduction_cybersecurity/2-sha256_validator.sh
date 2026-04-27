@@ -1,2 +1,3 @@
 #!/bin/bash
-echo "$1  $2" | sha256sum -c
+echo "$1 $2" > checksum.txt
+sha256sum -c checksum.txt
