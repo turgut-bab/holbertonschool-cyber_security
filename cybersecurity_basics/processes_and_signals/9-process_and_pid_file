@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# LOVE ME
+echo $$ > /tmp/myscript.pid
+term_handler() {
+    echo "I hate the kill command"
+    rm /tmp/myscript.pid
+    exit
+}
+quit_handler() {
+    rm /tmp/myscript.pid
+    exit
+}
+int_handler() {
+    echo "Y U no love me?!"
+}
+trap term_handler SIGTERM
+trap quit_handler SIGQUIT
+trap int_handler SIGINT
+while true
+do
+    echo "To infinity and beyond"
+    sleep 2
+done
